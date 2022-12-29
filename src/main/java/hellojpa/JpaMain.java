@@ -17,13 +17,22 @@ public class JpaMain {
         try {
             // 실제 동작코드 작성
 
+            // 준영속
+            Member member = em.find(Member.class, 101L);
+
+            em.detach(member); // jpa에서 관리하지 않음 영속성 컨텍스트에서 관리하지 않음
+            em.clear(); // 영속성 컨텍스트 초기화 1차 캐시 모두 사라짐
+//            em.close(); // 영속성 컨텍스트 종료 트랜잭션 끝난 후 닫아줌
+
+
+
             // 영속
-            Member member = new Member(200L, "member");
-            em.persist(member);
-
-            em.flush(); // 강제 호출: 즉시 sql 쿼리가 실행된다
-
-            System.out.println("-----------");
+//            Member member = new Member(200L, "member");
+//            em.persist(member);
+//
+//            em.flush(); // 강제 호출: 즉시 sql 쿼리가 실행된다
+//
+//            System.out.println("-----------");
 
             // 변경 감지
 //            Member member = em.find(Member.class, 101L);
