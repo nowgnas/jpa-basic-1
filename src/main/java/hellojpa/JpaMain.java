@@ -17,9 +17,17 @@ public class JpaMain {
         try {
             // 실제 동작코드 작성
 
+            // 영속
+            Member member = new Member(200L, "member");
+            em.persist(member);
+
+            em.flush(); // 강제 호출: 즉시 sql 쿼리가 실행된다
+
+            System.out.println("-----------");
+
             // 변경 감지
-            Member member = em.find(Member.class, 101L);
-            member.setName("zzz");
+//            Member member = em.find(Member.class, 101L);
+//            member.setName("zzz");
             // 변경 시 persist를 사용하면 안됨
 
 
