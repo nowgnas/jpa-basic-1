@@ -16,7 +16,6 @@ public class JpaMain {
         tx.begin(); // 트랜잭션 시작
         try {
             Member member = new Member();
-            member.setId("ID");
             member.setUsername("C");
             em.persist(member);
             tx.commit(); // 트랜잭션 커밋
