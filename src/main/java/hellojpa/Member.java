@@ -4,13 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@TableGenerator(
+@SequenceGenerator(
         name = "MEMBER_SEQ_GENERATOR",
-        table = "MY_SEQUENCES",
-        pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
+        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
+        initialValue = 1, allocationSize = 50)
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "MEMBER_SEQ_GENERATOR")
+    // IDENTITY 이면 id에 값을 할당하면 안된다
     private Long id;
     @Column(name = "name", nullable = false) // db에는 name으로 column 이름이 들어간다
     private String username;

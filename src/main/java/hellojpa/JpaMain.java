@@ -17,7 +17,12 @@ public class JpaMain {
         try {
             Member member = new Member();
             member.setUsername("C");
+
+            System.out.println("-------------");
             em.persist(member);
+            System.out.println(member.getId());
+            System.out.println("-------------");
+
             tx.commit(); // 트랜잭션 커밋
 
         } catch (Exception e) {
