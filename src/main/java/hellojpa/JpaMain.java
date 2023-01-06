@@ -15,13 +15,20 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin(); // 트랜잭션 시작
         try {
-            Member member = new Member();
-            member.setUsername("C");
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            System.out.println("-------------");
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
             em.persist(member);
-            System.out.println(member.getId());
-            System.out.println("-------------");
+
+            Member findMember = em.find(Member.class, member.getId());
+
+            Team findTeam = findMember.getTeam();
+            // select 문이 실행되지 않는 이유는 영속성 컨텍스트에 1차 캐시에 데이터가 있기 때문
+            System.out.println("find team : " + findTeam.getName());
 
             tx.commit(); // 트랜잭션 커밋
 
