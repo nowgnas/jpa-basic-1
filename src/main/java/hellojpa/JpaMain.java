@@ -17,23 +17,30 @@ public class JpaMain {
         try {
             Team team = new Team();
             team.setName("TeamA");
+//            team.getMembers().add(member); // member를 추가해 줬음
             em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+            // Team에서 연관관계 세팅 함
+//            member.changeTeam(team); // 연관관계의 주인에만 값을 추가
             em.persist(member);
 
-            em.flush();
-            em.clear();
+            team.addMember(member);
 
-            Member findMember = em.find(Member.class, member.getId());
+//            em.flush();
+//            em.clear();
 
-            List<Member> members = findMember.getTeam().getMembers();
-            for (Member m :
-                    members) {
-                System.out.println("member: " + m.getUsername());
+            // 객체의 메소드로 가능하다 setter에서 설정
+//            team.getMembers().add(member); // 꼭 추가해 줘야 한다
+
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
+
+            for (Member m : members) {
+                System.out.println("m : " + m.getUsername());
             }
+
 
             tx.commit(); // 트랜잭션 커밋
 

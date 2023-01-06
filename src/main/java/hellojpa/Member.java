@@ -40,4 +40,10 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    // team에서 정하면 하지 않아도 된다
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this); // this는 Member(자기자신)을 가리킨다
+//    }
 }
