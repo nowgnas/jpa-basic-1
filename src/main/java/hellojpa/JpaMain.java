@@ -24,11 +24,16 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
+            em.flush();
+            em.clear();
+
             Member findMember = em.find(Member.class, member.getId());
 
-            Team findTeam = findMember.getTeam();
-            // select 문이 실행되지 않는 이유는 영속성 컨텍스트에 1차 캐시에 데이터가 있기 때문
-            System.out.println("find team : " + findTeam.getName());
+            List<Member> members = findMember.getTeam().getMembers();
+            for (Member m :
+                    members) {
+                System.out.println("member: " + m.getUsername());
+            }
 
             tx.commit(); // 트랜잭션 커밋
 
