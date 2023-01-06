@@ -15,32 +15,17 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin(); // 트랜잭션 시작
         try {
-            Team team = new Team();
-            team.setName("TeamA");
-//            team.getMembers().add(member); // member를 추가해 줬음
-            em.persist(team);
-
             Member member = new Member();
             member.setUsername("member1");
-            // Team에서 연관관계 세팅 함
-//            member.changeTeam(team); // 연관관계의 주인에만 값을 추가
+
             em.persist(member);
 
-            team.addMember(member);
+            Team team = new Team();
+            team.setName("teamA");
 
-//            em.flush();
-//            em.clear();
+            team.getMembers().add(member);
 
-            // 객체의 메소드로 가능하다 setter에서 설정
-//            team.getMembers().add(member); // 꼭 추가해 줘야 한다
-
-            Team findTeam = em.find(Team.class, team.getId());
-            List<Member> members = findTeam.getMembers();
-
-            for (Member m : members) {
-                System.out.println("m : " + m.getUsername());
-            }
-
+            em.persist(team);
 
             tx.commit(); // 트랜잭션 커밋
 

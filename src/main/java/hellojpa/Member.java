@@ -13,9 +13,9 @@ public class Member {
 
     //    @Column(name = "TEAM_ID")
     //    private Long teamId;
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
+//    @ManyToOne
+//    @JoinColumn(name = "TEAM_ID")
+//    private Team team;
 
     public Long getId() {
         return id;
@@ -33,13 +33,6 @@ public class Member {
         this.username = username;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
 
     // team에서 정하면 하지 않아도 된다
 //    public void changeTeam(Team team) {

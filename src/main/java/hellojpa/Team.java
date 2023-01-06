@@ -6,11 +6,14 @@ import java.util.List;
 
 @Entity
 public class Team {
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "TEAM_ID")
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "team") // 1대다 매핑에서 어떤것과 매핑 되었는지: 매핑될 속성의 변수명
+    //    @OneToMany(mappedBy = "team") // 1대다 매핑에서 어떤것과 매핑 되었는지: 매핑될 속성의 변수명
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")
     private List<Member> members = new ArrayList<>();
 
     public Long getId() {
@@ -37,8 +40,5 @@ public class Team {
         this.members = members;
     }
 
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
-    }
+
 }
