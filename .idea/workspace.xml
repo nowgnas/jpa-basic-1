@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad612b37-63bf-42dd-a737-cba6fb4f181e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1672787054260" duration="3141000" />
       <workItem from="1672843201403" duration="5977000" />
       <workItem from="1672851064413" duration="1268000" />
-      <workItem from="1672998714262" duration="8632000" />
+      <workItem from="1672998714262" duration="11652000" />
     </task>
     <servers />
   </component>
