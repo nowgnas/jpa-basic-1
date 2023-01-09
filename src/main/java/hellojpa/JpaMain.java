@@ -15,17 +15,6 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin(); // 트랜잭션 시작
         try {
-            Member member = new Member();
-            member.setUsername("member1");
-
-            em.persist(member);
-
-            Team team = new Team();
-            team.setName("teamA");
-
-            team.getMembers().add(member);
-
-            em.persist(team);
 
             tx.commit(); // 트랜잭션 커밋
 
