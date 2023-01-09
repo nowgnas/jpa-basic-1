@@ -7,6 +7,8 @@
     <list default="true" id="ad612b37-63bf-42dd-a737-cba6fb4f181e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +103,8 @@
       <workItem from="1672998714262" duration="11652000" />
       <workItem from="1673065127258" duration="148000" />
       <workItem from="1673079251416" duration="958000" />
-      <workItem from="1673257916739" duration="4803000" />
+      <workItem from="1673257916739" duration="6528000" />
+      <workItem from="1673281562486" duration="740000" />
     </task>
     <servers />
   </component>
