@@ -30,8 +30,9 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            String query = "select m from Member m inner join m.team t";
-            List<Member> resultList = em.createQuery(query, Member.class)
+            String query = "select m.username, 'hello' ,true from Member m where m.type = :userType";
+            List resultList = em.createQuery(query)
+                    .setParameter("userType", "enumtype")
                     .getResultList();
 
 
