@@ -27,6 +27,8 @@ public class Member {
     @Embedded
     private Address address;
 
+    private int age;
+
     @ElementCollection
     @CollectionTable(
             name = "FAVORITE_FOODS",
@@ -43,6 +45,14 @@ public class Member {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "MEMBER_ID")
     private List<AddressEntity> addressHistory = new ArrayList<>();
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
