@@ -28,6 +28,9 @@ public class Member {
     private Address address;
 
     private int age;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_team_id")
+    private Team team;
 
     @ElementCollection
     @CollectionTable(
@@ -45,6 +48,15 @@ public class Member {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "MEMBER_ID")
     private List<AddressEntity> addressHistory = new ArrayList<>();
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
 
     public int getAge() {
         return age;
@@ -101,9 +113,10 @@ public class Member {
     public void setAddressHistory(List<AddressEntity> addressHistory) {
         this.addressHistory = addressHistory;
     }
+
     // team에서 정하면 하지 않아도 된다
-//    public void changeTeam(Team team) {
-//        this.team = team;
-//        team.getMembers().add(this); // this는 Member(자기자신)을 가리킨다
-//    }
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this); // this는 Member(자기자신)을 가리킨다
+    }
 }
